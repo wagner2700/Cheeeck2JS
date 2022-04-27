@@ -50,6 +50,7 @@ let curso = {
       let notas = aluno.notas
       let media =(notas.reduce((prev, curr) => prev + curr) / notas.length)
 
+
       if (
           faltas <= this.faltasMax &&
           media  >= this.notaAprovacao
@@ -70,7 +71,7 @@ let curso = {
   }
 }
 
-console.log([
+console.table([
   Wagner.calculaMedia(),
   Joao.calculaMedia(),
   Luiz.calculaMedia(),
@@ -83,4 +84,3 @@ curso.verificaAprovacao()
 
 
 
-console.log(curso.listaEstudantes)
