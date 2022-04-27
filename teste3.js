@@ -24,12 +24,12 @@ function Aluno(nome, qtdFaltas, notas) {
   }
 }
 
-const David   =  new Aluno('Wagner' , 10, [6,8,7,9])
-const Erik    =  new Aluno('Joao'   , 4, [9,8,8,9])
-const Gabriel =  new Aluno('Luiz'   , 0, [6,8,7,9])
-const Luis    =  new Aluno('Jose'   , 9, [2,3,1,0])
-const Mahiny  =  new Aluno('Maria'  , 7, [6,5,8,9])
-const Wagner  =  new Aluno('Larssa' , 15, [4,8,9,10])
+const Wagner   =  new Aluno('Wagner' , 10, [6,8,7,9])
+const Joao     =  new Aluno('Joao'   , 4, [9,8,8,9])
+const Luiz     =  new Aluno('Luiz'   , 0, [6,8,7,9])
+const Jose     =  new Aluno('Jose'   , 9, [2,3,1,0])
+const Maria    =  new Aluno('Maria'  , 7, [6,5,8,9])
+const Larissa  =  new Aluno('Larissa' , 15, [4,8,9,10])
 
 // passo 3
 let curso = {
@@ -37,8 +37,8 @@ let curso = {
   faltasMax: 20,
   notaAprovacao: 6,
   listaEstudantes: [
-      David, Erik, Gabriel,
-      Luis, Mahiny, Wagner
+      Wagner, Joao, Luiz,
+      Jose, Maria, Larissa
   ],
   // Passo 4
   novoAluno: function() {
@@ -70,18 +70,17 @@ let curso = {
   }
 }
 
-console.table([
-  David.calculaMedia(),
-  Erik.calculaMedia(),
-  Gabriel.calculaMedia(),
-  Luis.calculaMedia(),
-  Mahiny.calculaMedia(),
+console.log([
+  Wagner.calculaMedia(),
+  Joao.calculaMedia(),
+  Luiz.calculaMedia(),
+  Jose.calculaMedia(),
+  Maria.calculaMedia(),
   Wagner.calculaMedia()
 ], ['nome', 'notas', 'media', 'faltas'])
 
 curso.verificaAprovacao()
 
 
-curso.novoAluno()
 
 console.log(curso.listaEstudantes)
