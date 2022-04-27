@@ -30,35 +30,55 @@ let escola = {
 
 let curso = {
     nomeCurso : "Dev",
-    notaAprovação: 6,
-    FaltasMáximas: 20,
-    listaEstudante: escola.sala
+    notaAprovação: 8,
+    faltasMaxima: 20,
+    listaEstudante: escola.sala,
     
-}
 
-function AlunoAprovadoOuNao(nome,qtdFaltas,media){
+
+alunoAprovadoOuNao : function(nome,qtdFaltas,media){
+    let notaAprovação = this.notaAprovação
+    let faltaMaxima = this.faltasMaxima
+    if(media >= notaAprovação & qtdFaltas < faltaMaxima){
+        console.log(nome +" Esta Aprovado!!")
+    } 
+    else if (qtdFaltas == faltaMaxima & media >= (notaAprovação * 1.1)) {
+        console.log(`${nome} Quase reprovou Mas passou !`)
+    }
+    else if (qtdFaltas > faltaMaxima | media < notaAprovação)
+    {
+        console.log(`${nome}Esta Reprovado`)
+    }
+},
+
+salaAprova : function(){ 
     
-    if(media >=6 & qtdFaltas <=25){
-        console.log(nome +" Esta Aprovado!")
-    }else {
-        console.log(nome + "Esta Reprovado")
+    for(i=0 ; i < this.listaEstudante.length ; i++){
+          
+        if(this.listaEstudante[i] > 0) {
+                console.log(   "Aprovado")
+            }
+            else {
+                console.log( 'Reprovado !')
+            }
     }
 }
+}
 
 
 
 
-
-escola.adicionarAluno('Wawa' , 15 , [2,3,4])
-escola.adicionarAluno('Lala' , 15 , [2,3,4])
+escola.adicionarAluno('Wawa' , 15 , [2,9,9])
+escola.adicionarAluno('Lala' , 15 , [2,9,9])
 // console.log(curso.listaEstudante)
 
 
 
-const David   =  new Aluno('David',  9 | 0, [(Math.random() * 10) | 0, (Math.random() * 10) | 0, (Math.random() * 10) | 0])
-const Erik    =  new Aluno('Erik',    (Math.random() * 10) | 0, [(Math.random() * 10) | 0, (Math.random() * 10) | 0, (Math.random() * 10) | 0])
+const David   =  new Aluno('David',  10, [6,8,9,6])
+const Erik    =  new Aluno('Erik', 20, [8,9,6,9])
 
 David.calculaMedia()
 Erik.calculaMedia()
 
-AlunoAprovadoOuNao('wawa',5,8)
+// curso.alunoAprovadoOuNao('wawa',19,8.8)
+curso.salaAprova()
